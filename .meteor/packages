@@ -12,3 +12,4 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 twbs:bootstrap
 underscore
+multiply:iron-router-progress

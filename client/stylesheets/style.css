@@ -91,3 +91,8 @@ body {
 	text-decoration: none;
 	background: rgba(0, 0, 0, 0.1);
 }
+
+#iron-router-progress {
+	background-color: #00FFDF;
+	box-shadow: 0 0 5px green;
+}
