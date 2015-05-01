@@ -37,7 +37,17 @@ Meteor.methods
 			userId: user._id,
 			author: user.username,
 			submitted: new Date().getTime(),
-			commentsCount: 0
+			commentsCount: 0,
+			upvoters = [],
+			votes: 0
 		)
 		postId = Posts.insert post
 		return _id: postId
+	upvote: (postId) ->
+		user = Meteor.user()
+		throw new Meteor.Error 401, 'You need to be logged to vote' if !user
+		# post = Posts.findOne postId
+		# throw new Meteor.Error 422, 'Post not found' if !post
+		# throw new Meteor.Error 422, 'You already vote for this post' if _.include(post.upvoters, user._id)
+		Posts.update({_id: postId, upvoters: {$ne: user._id}}, {$addToSet: {upvoters: user._id}, $inc: {votes: 1}})
+

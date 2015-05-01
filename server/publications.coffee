@@ -5,7 +5,7 @@ Meteor.publish 'comments', (pId) ->
 	return Comments.find({postId: pId})
 
 Meteor.publish 'notifications',->
-	return Notifications.find(userId: @id)
+	return Notifications.find(userId: @userId, read: off)
 
 
 Meteor.publish 'singlePost',(pId) ->

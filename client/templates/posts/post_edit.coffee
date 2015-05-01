@@ -25,4 +25,4 @@ Template.postEdit.events
 		if confirm 'Really delete this awesome post???'
 			currentPostId = @_id
 			Posts.remove currentPostId
-			Router.go 'postsList'
+			Router.go 'home'
